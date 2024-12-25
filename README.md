@@ -1,6 +1,6 @@
 # DSA Learning with C++
 
-Welcome to my Data Structures and Algorithms (DSA) learning repository! 🚀 This repository documents my journey of mastering DSA concepts using C++, following the DSA-for-Interviews-GirlScript-EOP course. Each file demonstrates implementations of various data structures and algorithms, with clear and concise code, created for educational purposes.
+Welcome to my Data Structures and Algorithms (DSA) learning repository! 🚀 This repository documents my journey of mastering DSA concepts using C++, following the **[DSA-for-Interviews-GirlScript-EOP](https://github.com/poojasabnani/DSA-for-Interviews-GirlScript-EOP)** course. Each file demonstrates implementations of various data structures and algorithms, with clear and concise code, created for educational purposes.
 
 ## 📂 Repository Structure
 
