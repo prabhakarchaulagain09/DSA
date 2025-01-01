@@ -18,6 +18,7 @@ The repository is organized as follows:
 
 ### 📚 Other Data Structures (Coming Soon)
 - Arrays
+- Vectors
 - Stacks
 - Queues
 - Trees
