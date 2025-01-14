@@ -34,7 +34,13 @@ The repository is organized as follows:
 
 
 ### 📚 Other Data Structures (Coming Soon)
+<<<<<<< HEAD
 
+=======
+- Arrays
+- Vectors
+- Stacks
+>>>>>>> 270952d1a01abc3646b75d80a4e88942727c6aa1
 - Queues
 - Trees
 - Graphs
