@@ -16,9 +16,25 @@ The repository is organized as follows:
 - **[Deleteing_Tail.cpp](LinkedList/Deleteing_Tail.cpp)**: Delete the tail node.
 - **[Delete_given_position.cpp](LinkedList/Delete_given_position.cpp)**: Delete a node at a specified position.
 
+### 📚 Arrays and Vectors
+- **[ArrayInput.cpp](ArraysAndVectors/ArrayInput.cpp)**: How to make input using an array.
+- **[ArrayPrint.cpp](ArraysAndVectors/ArrayPrint.cpp)**: How to print using an array.
+- **[Array-problem1.cpp](ArraysAndVectors/Array-problem1.cpp)**: Calculate the sum of all the elements in the given array.
+- **[Array-problem2.cpp](ArraysAndVectors/Array-problem2.cpp)**: Find the maximum value out of all the elements in the array.
+- **[Array-problem3(LinearSearch).cpp](ArraysAndVectors/Array-problem3(LinearSearch).cpp)**: Search if a given element is present in the array or not.
+- **[LoopInVector.cpp](ArraysAndVectors/LoopInVector.cpp)**: How to implement loops while using vector.
+- **[Vector-problem1.cpp](ArraysAndVectors/Vector-problem1.cpp)**: Find the last occurrence of an element x in a given array.
+- **[Vector-problem2.cpp](ArraysAndVectors/Vector-problem2.cpp)**: Find the count of an element x in a given array.
+- **[Vector-problem3.cpp](ArraysAndVectors/Vector-problem3.cpp)**: Count the number of elements strictly greater than value x.
+- **[vectorOperations.cpp](ArraysAndVectors/vectorOperations.cpp)**: Add and remove elements in a vector.
+
+### 📚 Stacks
+- **[StackUsingArray.cpp](Stacks/StackUsingArray.cpp)**: Implementation of stack using array.
+- **[StackUsingLinkedList.cpp](Stacks/StackUsingLinkedList.cpp)**: Implementation of stack using linked list.
+
+
 ### 📚 Other Data Structures (Coming Soon)
-- Arrays
-- Stacks
+
 - Queues
 - Trees
 - Graphs
