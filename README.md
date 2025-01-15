@@ -1,20 +1,29 @@
-# DSA with C++
+# Data Structures and Algorithms with C++
 
-Welcome to my Data Structures and Algorithms (DSA) learning repository! 🚀 This repository documents my journey of mastering DSA concepts using C++, following the **[DSA-for-Interviews-GirlScript-EOP](https://github.com/poojasabnani/DSA-for-Interviews-GirlScript-EOP)** course. Each file demonstrates implementations of various data structures and algorithms, with clear and concise code, created for educational purposes.
+Welcome to the Data Structures and Algorithms (DSA) repository! This repository contains implementations of various data structures and algorithms using C++. It is designed for educational purposes and to help you master DSA concepts.
 
 ## 📂 Repository Structure
 
-The repository is organized as follows:
+The repository is organized into the following directories:
+
+### 📚 C++ Basics
+In case you are new to C++, use this folder as your starting point. Here are examples of how to take input and display output, how to use if-else statements, loops, classes, and other fundamental concepts.
+
+- **[Basic_inputoutput.cpp](C++%20Basics/Basic_inputoutput.cpp)**: Finding the hypotenuse given base and altitude.
+- **[If-Else/BMI_Calculator.cpp](C++%20Basics/If-Else/BMI_Calculator.cpp)**: Calculate Body Mass Index (BMI) and determine the category.
+- **[If-Else/LeapYear.cpp](C++%20Basics/If-Else/LeapYear.cpp)**: Determine if a given year is a leap year.
+- **[If-Else/RootsOfQE.cpp](C++%20Basics/If-Else/RootsOfQE.cpp)**: Find the nature of the roots of a quadratic equation.
+
 
 ### 🔗 Linked List
-- **[Initialize_a_LinkedList.cpp](LinkedList/Initialize_a_LinkedList.cpp)**: Create and initialize a basic linked list.
-- **[Printing_Elements.cpp](LinkedList/Printing_Elements.cpp)**: Print elements of a linked list.
-- **[InsertAtHead.cpp](LinkedList/InsertAtHead.cpp)**: Insert a node at the beginning of a linked list.
-- **[InsertAtTail.cpp](LinkedList/InsertAtTail.cpp)**: Insert a node at the end of a linked list.
-- **[InsertAtPosition.cpp](LinkedList/InsertAtPosition.cpp)**: Insert a node at a specific position.
-- **[Deleting_Head.cpp](LinkedList/Deleting_Head.cpp)**: Delete the head node.
-- **[Deleteing_Tail.cpp](LinkedList/Deleteing_Tail.cpp)**: Delete the tail node.
-- **[Delete_given_position.cpp](LinkedList/Delete_given_position.cpp)**: Delete a node at a specified position.
+- **[Initialize_a_LinkedList.cpp](LinkedList/Singly%20linked%20lists/Initialize_a_LinkedList.cpp)**: Create and initialize a basic linked list.
+- **[Printing_Elements.cpp](LinkedList/Singly%20linked%20lists/Printing_Elements.cpp)**: Print elements of a linked list.
+- **[InsertAtHead.cpp](LinkedList/Singly%20linked%20lists/InsertAtHead.cpp)**: Insert a node at the beginning of a linked list.
+- **[InsertAtTail.cpp](LinkedList/Singly%20linked%20lists/InsertAtTail.cpp)**: Insert a node at the end of a linked list.
+- **[InsertAtPosition.cpp](LinkedList/Singly%20linked%20lists/InsertAtPosition.cpp)**: Insert a node at a specific position.
+- **[Deleting_Head.cpp](LinkedList/Singly%20linked%20lists/Deleting_Head.cpp)**: Delete the head node.
+- **[Deleteing_Tail.cpp](LinkedList/Singly%20linked%20lists/Deleteing_Tail.cpp)**: Delete the tail node.
+- **[Delete_given_position.cpp](LinkedList/Singly%20linked%20lists/Delete_given_position.cpp)**: Delete a node at a specified position.
 
 ### 📚 Arrays and Vectors
 - **[ArrayInput.cpp](ArraysAndVectors/ArrayInput.cpp)**: How to make input using an array.
@@ -32,19 +41,18 @@ The repository is organized as follows:
 - **[StackUsingArray.cpp](Stacks/StackUsingArray.cpp)**: Implementation of stack using array.
 - **[StackUsingLinkedList.cpp](Stacks/StackUsingLinkedList.cpp)**: Implementation of stack using linked list.
 
+## 🛠️ Prerequisites
 
-### 📚 Other Data Structures (Coming Soon)
-<<<<<<< HEAD
+To compile and run the C++ programs, you need:
 
-=======
-- Arrays
-- Vectors
-- Stacks
->>>>>>> 270952d1a01abc3646b75d80a4e88942727c6aa1
-- Queues
-- Trees
-- Graphs
-- Hash Tables
+- A C++ compiler (e.g., GCC, Clang, MSVC)
+- A basic understanding of C++ syntax
+
+## 🚀 Getting Started
+
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/yourusername/DSA-with-Cpp.git
 
 ## 🛠️ Prerequisites
 
