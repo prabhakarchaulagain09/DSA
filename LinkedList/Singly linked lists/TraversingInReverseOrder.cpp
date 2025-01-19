@@ -1,4 +1,4 @@
-// Delete at position
+// Traversing a linked list in reverse order.
 
 #include <iostream>
 using namespace std;
@@ -26,33 +26,15 @@ public:
         }
         cout << "nullptr\n\n" << endl;
     }
-
-    void deleteAtpos(Node* &head, int pos){
+    
+    void reversePrint(Node* &head){
         if(head == nullptr){
-            cout << "List is empty";
             return;
         }
-        
-        if(pos == 0){
-            head = head->next;
-            return;
-        }
-        
-        int curr_pos = 0;
-        Node* prev = head;
-        
-        while(curr_pos != pos-1 &&  prev->next->next != nullptr && prev->next != nullptr){
-            prev = prev->next;
-            curr_pos++;
-        }
-        
-        if (curr_pos+1 < pos) {
-        cout << “Out of bound\n”;
-        exit (0);
-        }
-
-        prev->next = prev->next->next;
+        reversePrint(head->next);
+        cout << head->data << " -> ";
     }
+    
 };
     
 int main(){
@@ -76,9 +58,9 @@ int main(){
     ll.display(head);
 
 
-    cout << "After deleting given position: \n";
-    ll.deleteAtpos(head, 5);
-    ll.display(head);
+    cout << "Printing in reverse order: \n";
+
+    ll.reversePrint(head);
     
     return 0;
 }

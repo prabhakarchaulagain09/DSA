@@ -24,7 +24,7 @@ public:
             cout << temp->data << " -> ";
             temp = temp->next;
         }
-        cout << "nullptr\n\n" << endl;
+        cout << "nullptr" << endl;
     }
 
     void deleteAtpos(Node* &head, int pos){
@@ -46,39 +46,10 @@ public:
             curr_pos++;
         }
         
-        if (curr_pos+1 < pos) {
-        cout << “Out of bound\n”;
-        exit (0);
+        while(prev->next == nullptr && prev->next->next ==nullptr){
+        cout << "Our of bound";
+        return;
         }
-
-        prev->next = prev->next->next;
+        
+        prev->next = prev->next->next
     }
-};
-    
-int main(){
-    
-    LinkedList ll;
-
-
-    Node* head = new Node(1);
-    Node* node2 = new Node(2);
-    Node* node3 = new Node(3);
-    Node* node4 = new Node(4);
-    Node* node5 = new Node(5);
-
-    head->next = node2;
-    node2->next = node3;
-    node3->next = node4;
-    node4->next = node5;
-
-
-    cout << "Original list: \n";
-    ll.display(head);
-
-
-    cout << "After deleting given position: \n";
-    ll.deleteAtpos(head, 5);
-    ll.display(head);
-    
-    return 0;
-}
