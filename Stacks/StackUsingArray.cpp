@@ -1,5 +1,4 @@
 #include <iostream>
-#include <climits> // For INT_MIN
 using namespace std;
 
 class Stack {
@@ -27,21 +26,21 @@ public:
     }
 
     // Pop function
-    int pop() {
+    void pop() {
         if (this->top == -1) { 
-            cout << "Underflow\n";
-            return INT_MIN; // Returns a special value for underflow
+            cout << "The stack is empty (Underflow condition)\n";
+            return; // Returns a special value for underflow
         }
         int popped = this->arr[this->top];
         this->top--;
-        return popped;
+        return;
     }
 
     // Top function
     int getTop() { 
         if (this->top == -1) {
             cout << "Underflow\n";
-            return INT_MIN;
+            exit (1);
         }
         return this->arr[this->top];
     }

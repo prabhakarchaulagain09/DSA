@@ -30,19 +30,19 @@ public:
     void midpoint(Node* &head){
         
     int ll_length = 0;
-    Node* temp = head;
+    Node* currentNode = head;
     
-    while(temp != nullptr){
-        temp = temp->next;
+    while(currentNode != nullptr){
+        currentNode = currentNode->next;
         ll_length++;
     }
     
     int mid_point = ll_length/2;
     int current_pos = 0;
 
-    Node* temp2 = head;
-    while(temp2 != nullptr){
-        temp2 = temp2->next;
+    currentNode = head;
+    while(currentNode != nullptr){
+        currentNode = currentNode->next;
         current_pos++;
         
         if (current_pos == mid_point){
@@ -50,10 +50,10 @@ public:
         }
     }
     
-    cout << temp2->data;
+    cout << currentNode->data;
 
     }
-    
+
 };
     
 int main(){
