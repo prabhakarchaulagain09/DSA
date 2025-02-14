@@ -1,95 +1,69 @@
 #include <iostream>
 #include <vector>
-#include <cstdlib>  // For rand() and srand()
-#include <ctime>  
-#include <algorithm> // For std::sort (for verification)
+#include <cstdlib>
+#include <ctime>
+#include <algorithm>
+#include <chrono>
 
 using namespace std;
+using namespace std::chrono;
 
-// Function to generate a random array
-vector<int> generateRandomArray(int size) {
-    vector<int> arr(size);
-    for (int i = 0; i < size; ++i) {
-        arr[i] = rand() % 10000; // Random numbers between 0 and 9999
+// Function to generate N random integers
+vector<int> generateRandomNumbers(int N) {
+    vector<int> numbers;
+    srand(time(0));
+    for (int i = 0; i < N; i++) {
+        numbers.push_back(rand() % 1000); // Random numbers between 0 and 999
     }
-    return arr;
+    return numbers;
 }
 
-// Bubble Sort
-void bubbleSort(vector<int>& arr) {
-    int n = arr.size();
-    for (int i = 0; i < n - 1; ++i) {
-        for (int j = 0; j < n - i - 1; ++j) {
-            if (arr[j] > arr[j + 1]) {
-                swap(arr[j], arr[j + 1]);
-            }
-        }
+// Binary Search Algorithm
+int binarySearch(const vector<int>& arr, int target) {
+    int left = 0, right = arr.size() - 1;
+    while (left <= right) {
+        int mid = left + (right - left) / 2;
+        if (arr[mid] == target) return mid;
+        if (arr[mid] < target) left = mid + 1;
+        else right = mid - 1;
     }
+    return -1; // Not found
 }
 
-// Selection Sort
+// Interpolation Search Algorithm
+int interpolationSearch(const vector<int>& arr, int target) {
+    int left = 0, right = arr.size() - 1;
+    while (left <= right && target >= arr[left] && target <= arr[right]) {
+        int pos = left + ((target - arr[left]) * (right - left)) / (arr[right] - arr[left]);
+        if (arr[pos] == target) return pos;
+        if (arr[pos] < target) left = pos + 1;
+        else right = pos - 1;
+    }
+    return -1; // Not found
+}
+
+// Selection Sort Algorithm
 void selectionSort(vector<int>& arr) {
-    int n = arr.size();
-    for (int i = 0; i < n - 1; ++i) {
-        int minIndex = i;
-        for (int j = i + 1; j < n; ++j) {
-            if (arr[j] < arr[minIndex]) {
-                minIndex = j;
-            }
+    for (size_t i = 0; i < arr.size() - 1; i++) {
+        size_t minIndex = i;
+        for (size_t j = i + 1; j < arr.size(); j++) {
+            if (arr[j] < arr[minIndex]) minIndex = j;
         }
         swap(arr[i], arr[minIndex]);
     }
 }
 
-// Insertion Sort
-void insertionSort(vector<int>& arr) {
-    int n = arr.size();
-    for (int i = 1; i < n; ++i) {
-        int key = arr[i];
-        int j = i - 1;
-        while (j >= 0 && arr[j] > key) {
-            arr[j + 1] = arr[j];
-            j--;
-        }
-        arr[j + 1] = key;
-    }
-}
-
-// Merge Sort
+// Merge Sort Algorithm
 void merge(vector<int>& arr, int left, int mid, int right) {
-    int n1 = mid - left + 1;
-    int n2 = right - mid;
-
-    vector<int> L(n1), R(n2);
-
-    for (int i = 0; i < n1; ++i)
-        L[i] = arr[left + i];
-    for (int j = 0; j < n2; ++j)
-        R[j] = arr[mid + 1 + j];
-
-    int i = 0, j = 0, k = left;
-    while (i < n1 && j < n2) {
-        if (L[i] <= R[j]) {
-            arr[k] = L[i];
-            i++;
-        } else {
-            arr[k] = R[j];
-            j++;
-        }
-        k++;
+    vector<int> temp(right - left + 1);
+    int i = left, j = mid + 1, k = 0;
+    while (i <= mid && j <= right) {
+        if (arr[i] <= arr[j]) temp[k++] = arr[i++];
+        else temp[k++] = arr[j++];
     }
-
-    while (i < n1) {
-        arr[k] = L[i];
-        i++;
-        k++;
-    }
-
-    while (j < n2) {
-        arr[k] = R[j];
-        j++;
-        k++;
-    }
+    while (i <= mid) temp[k++] = arr[i++];
+    while (j <= right) temp[k++] = arr[j++];
+    for (i = left; i <= right; i++) arr[i] = temp[i - left];
 }
 
 void mergeSort(vector<int>& arr, int left, int right) {
@@ -101,72 +75,60 @@ void mergeSort(vector<int>& arr, int left, int right) {
     }
 }
 
-// Quick Sort
-int partition(vector<int>& arr, int low, int high) {
-    int pivot = arr[high];
-    int i = low - 1;
-    for (int j = low; j < high; ++j) {
-        if (arr[j] < pivot) {
-            i++;
-            swap(arr[i], arr[j]);
-        }
-    }
-    swap(arr[i + 1], arr[high]);
-    return i + 1;
-}
-
-void quickSort(vector<int>& arr, int low, int high) {
-    if (low < high) {
-        int pi = partition(arr, low, high);
-        quickSort(arr, low, pi - 1);
-        quickSort(arr, pi + 1, high);
-    }
-}
-
-// Function to measure sorting time
-double measureTime(void (*sortFunction)(vector<int>&), vector<int> arr) {
-    clock_t start = clock();
-    sortFunction(arr);
-    clock_t end = clock();
-    return double(end - start) / CLOCKS_PER_SEC;
-}
-
-double measureTimeRecursive(void (*sortFunction)(vector<int>&, int, int), vector<int> arr, int low, int high) {
-    clock_t start = clock();
-    sortFunction(arr, low, high);
-    clock_t end = clock();
-    return double(end - start) / CLOCKS_PER_SEC;
+// Function to print the array
+void printArray(const vector<int>& arr) {
+    for (int num : arr) cout << num << " ";
+    cout << endl;
 }
 
 int main() {
-    srand(time(0)); // Seed for random number generation
+    int N, target;
+    cout << "Enter the number of random integers (N): ";
+    cin >> N;
 
-    int size;
-    cout << "Enter the size of the array: ";
-    cin >> size;
+    vector<int> numbers = generateRandomNumbers(N);
+    cout << "Generated numbers: ";
+    printArray(numbers);
 
-    vector<int> arr = generateRandomArray(size);
+    // Sorting using Selection Sort
+    auto start = high_resolution_clock::now();
+    selectionSort(numbers);
+    auto stop = high_resolution_clock::now();
+    auto duration = duration_cast<milliseconds>(stop - start);
+    cout << "Sorted numbers (Selection Sort): ";
+    printArray(numbers);
+    cout << "Time taken by Selection Sort: " << duration.count() << " milliseconds" << endl;
 
-    // Make copies of the array for each sorting algorithm
-    vector<int> arrBubble = arr;
-    vector<int> arrSelection = arr;
-    vector<int> arrInsertion = arr;
-    vector<int> arrMerge = arr;
-    vector<int> arrQuick = arr;
+    // Sorting using Merge Sort
+    start = high_resolution_clock::now();
+    mergeSort(numbers, 0, numbers.size() - 1);
+    stop = high_resolution_clock::now();
+    duration = duration_cast<milliseconds>(stop - start);
+    cout << "Sorted numbers (Merge Sort): ";
+    printArray(numbers);
+    cout << "Time taken by Merge Sort: " << duration.count() << " milliseconds" << endl;
 
-    // Measure time for each sorting algorithm
-    double timeBubble = measureTime(bubbleSort, arrBubble);
-    double timeSelection = measureTime(selectionSort, arrSelection);
-    double timeInsertion = measureTime(insertionSort, arrInsertion);
-    double timeMerge = measureTimeRecursive(mergeSort, arrMerge, 0, size - 1);
-    double timeQuick = measureTimeRecursive(quickSort, arrQuick, 0, size - 1);
+    // Searching
+    cout << "Enter the number to search: ";
+    cin >> target;
 
-    // Output the results
-    cout << "Time taken by Bubble Sort: " << timeBubble << " seconds" << endl;
-    cout << "Time taken by Selection Sort: " << timeSelection << " seconds" << endl;
-    cout << "Time taken by Insertion Sort: " << timeInsertion << " seconds" << endl;
-    cout << "Time taken by Merge Sort: " << timeMerge << " seconds" << endl;
-    cout << "Time taken by Quick Sort: " << timeQuick << " seconds" << endl;
+    // Binary Search
+    start = high_resolution_clock::now();
+    int index = binarySearch(numbers, target);
+    stop = high_resolution_clock::now();
+    duration = duration_cast<milliseconds>(stop - start);
+    if (index != -1) cout << "Element found at index " << index << " (Binary Search)" << endl;
+    else cout << "Element not found (Binary Search)" << endl;
+    cout << "Time taken by Binary Search: " << duration.count() << " milliseconds" << endl;
+
+    // Interpolation Search
+    start = high_resolution_clock::now();
+    index = interpolationSearch(numbers, target);
+    stop = high_resolution_clock::now();
+    duration = duration_cast<milliseconds>(stop - start);
+    if (index != -1) cout << "Element found at index " << index << " (Interpolation Search)" << endl;
+    else cout << "Element not found (Interpolation Search)" << endl;
+    cout << "Time taken by Interpolation Search: " << duration.count() << " milliseconds" << endl;
 
     return 0;
 }

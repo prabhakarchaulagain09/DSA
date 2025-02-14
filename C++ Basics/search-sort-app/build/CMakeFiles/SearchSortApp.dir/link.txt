@@ -1,1 +1,0 @@
-/usr/sbin/c++ -Wl,--dependency-file=CMakeFiles/SearchSortApp.dir/link.d CMakeFiles/SearchSortApp.dir/src/main.cpp.o CMakeFiles/SearchSortApp.dir/src/searching.cpp.o CMakeFiles/SearchSortApp.dir/src/sorting.cpp.o CMakeFiles/SearchSortApp.dir/src/utils.cpp.o -o SearchSortApp
